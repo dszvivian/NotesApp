@@ -6,12 +6,19 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@Database(entities = arrayOf(Note::class) , version = 1 , exportSchema = false)
+@Database(
+    entities = arrayOf(
+        Note::class ,
+        Todo::class
+    ) ,
+    version = 2 ,
+    exportSchema = false)
 abstract class NoteDatabase : RoomDatabase() {
 
 
 
     abstract fun getNotesDao(): NoteDao
+    abstract fun getTodoDao(): TodoDao
 
 
 
@@ -19,6 +26,8 @@ abstract class NoteDatabase : RoomDatabase() {
 
         @Volatile
         private var INSTANCE : NoteDatabase? = null
+
+
 
         fun getDatabase(context : Context): NoteDatabase{
 
