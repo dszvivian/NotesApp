@@ -11,8 +11,7 @@
         android:id="@+id/rvTodoList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/todo_rv_item"
-        />
+        tools:listitem="@layout/todo_rv_item" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -23,6 +22,7 @@
         android:layout_alignParentBottom="true"
         android:layout_margin = "20dp"
         android:src="@drawable/ic_baseline_add_24"
+        android:backgroundTint="@color/purple_200"
         tools:ignore="SpeakableTextPresentCheck" />
 
 </RelativeLayout>

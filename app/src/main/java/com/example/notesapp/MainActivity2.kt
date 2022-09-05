@@ -24,9 +24,18 @@ class MainActivity2 : AppCompatActivity() {
         val noteFragment = MainActivity()
         val todoFragment = TodoFragment()
 
+        supportFragmentManager
+            .beginTransaction().apply {
+                replace(R.id.flFragments , noteFragment )
+                    .addToBackStack(null)
+                    .commit()
+            }
+
+
 
 
         bnvMain.setOnItemSelectedListener {
+
 
 
             when(it.itemId){
