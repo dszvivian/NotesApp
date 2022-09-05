@@ -32,24 +32,30 @@ class MainActivity2 : AppCompatActivity() {
             when(it.itemId){
 
                 R.id.item_note -> {
+
                     supportFragmentManager
                         .beginTransaction().apply {
                             replace(R.id.flFragments , noteFragment )
                             .addToBackStack(null)
                             .commit()
                         }
-                    false
+
+                    true
                 }
 
                 R.id.item_todo -> {
+
+
                     supportFragmentManager
                         .beginTransaction().apply {
                             replace(R.id.flFragments , todoFragment )
                                 .addToBackStack(null)
                                 .commit()
                         }
-                    false
+                    true
                 }
+
+
 
                 else -> {false}
             }

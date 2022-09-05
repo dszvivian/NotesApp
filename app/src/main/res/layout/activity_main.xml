@@ -24,12 +24,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_margin = "20dp"
         android:src="@drawable/ic_baseline_add_24"
-        app:tint="@color/white"
+        app:tint="@color/black"
         tools:ignore="SpeakableTextPresentCheck" />
 
 </RelativeLayout>

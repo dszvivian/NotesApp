@@ -3,18 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <CheckedTextView
-        android:id="@+id/checkedTextView1"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvTodo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:textSize="21sp"
         android:text="default"
+        android:checked="false"
         android:textColor="#3d484d"
         android:paddingLeft="14dp"
         android:paddingTop="12dp"
         android:paddingBottom="12dp"
         />
+
+    <CheckBox
+        android:id="@+id/cbTodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        />
+
 
 
 </RelativeLayout>

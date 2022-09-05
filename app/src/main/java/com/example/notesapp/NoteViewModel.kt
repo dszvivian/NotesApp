@@ -11,7 +11,7 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
 
     val allNotes : LiveData<List<Note>>
     val allTodo : LiveData<List<Todo>>
-    val repository : NotesRepository
+    private val repository : NotesRepository
 
 
     init {
@@ -20,7 +20,6 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
         repository = NotesRepository(dao,todoDao)
         allNotes = repository.getAllNotes
         allTodo = repository.getAllTodo
-
     }
 
 

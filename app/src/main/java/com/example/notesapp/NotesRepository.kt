@@ -22,7 +22,7 @@ class NotesRepository(private val notesDao: NoteDao,private val todoDao: TodoDao
 
 
 
-    //todo functions
+    //todo_functions
     suspend fun insertTodo(todo: Todo){
         todoDao.insert(todo)
     }

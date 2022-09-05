@@ -7,13 +7,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "todoTable")
 class Todo(
-
     @ColumnInfo(name = "task")
     val task:String
-
 ) {
-
     @PrimaryKey(autoGenerate = true)
     var id:Int = 0
-
 }

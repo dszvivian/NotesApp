@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 
 
 @Database(
@@ -22,10 +24,24 @@ abstract class NoteDatabase : RoomDatabase() {
 
 
 
+
+
+
     companion object{
 
         @Volatile
         private var INSTANCE : NoteDatabase? = null
+
+
+        //todo query not working
+        private val migration_1_2 = object : Migration(1,2){
+            override fun migrate(database: SupportSQLiteDatabase) {
+
+                database.query("create table if not exists 'todoTable' ('task' TEXT , `id` INTEGER, PRIMARY KEY(`id`))")
+
+            }
+
+        }
 
 
 
@@ -37,9 +53,10 @@ abstract class NoteDatabase : RoomDatabase() {
                     context.applicationContext ,
                     NoteDatabase::class.java,
                     "notes_database"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
-
 
                 instance
 
