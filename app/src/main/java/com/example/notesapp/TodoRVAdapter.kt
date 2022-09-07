@@ -51,26 +51,25 @@ class TodoRVAdapter(
             false
         }
 
-        holder.cbTodo.setOnClickListener{
+        holder.cbTodo.setOnClickListener {
             onTodoClickInterface.onTodoClick(allTodo.get(position))
+        }
 
-            if(holder.cbTodo.isChecked ){
-            allTodo.get(position).isChecked = true
+        if(allTodo.get(position).isChecked){
+            holder.cbTodo!!.isChecked = true
+            holder.cbTodo.jumpDrawablesToCurrentState()
+            holder.task.setTextColor(Color.GREEN)
         }
         else{
-            allTodo.get(position).isChecked = false
+            holder.cbTodo!!.isChecked = false
+            holder.cbTodo.jumpDrawablesToCurrentState()
+            holder.task.setTextColor(Color.BLACK)
         }
 
 
 
-            if(allTodo.get(position).isChecked){
-                holder.task.setTextColor(Color.GREEN)
-            }
-            else{
-                holder.task.setTextColor(Color.BLACK)
-            }
 
-        }
+
 
     }
 
