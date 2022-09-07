@@ -1,12 +1,15 @@
 package com.example.notesapp
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.CheckedTextView
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 
 class TodoRVAdapter(
@@ -18,6 +21,8 @@ class TodoRVAdapter(
 ): RecyclerView.Adapter<TodoRVAdapter.ViewHolder>() {
 
     val allTodo = ArrayList<Todo>()
+
+
 
 
     inner class ViewHolder(view:View):RecyclerView.ViewHolder(view){
@@ -39,15 +44,33 @@ class TodoRVAdapter(
 
         holder.task.setText(allTodo.get(position).task)
 
-        holder.itemView.setOnLongClickListener{
+
+
+        holder.task.setOnLongClickListener{
             onTodoClickDelete.onLongPressDelete(todo = allTodo.get(position))
             false
         }
 
-        holder.task.setOnClickListener{
+        holder.cbTodo.setOnClickListener{
             onTodoClickInterface.onTodoClick(allTodo.get(position))
+
+            if(holder.cbTodo.isChecked ){
+            allTodo.get(position).isChecked = true
+        }
+        else{
+            allTodo.get(position).isChecked = false
         }
 
+
+
+            if(allTodo.get(position).isChecked){
+                holder.task.setTextColor(Color.GREEN)
+            }
+            else{
+                holder.task.setTextColor(Color.BLACK)
+            }
+
+        }
 
     }
 

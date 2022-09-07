@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         Note::class ,
         Todo::class
     ) ,
-    version = 2 ,
+    version = 3 ,
     exportSchema = false)
 abstract class NoteDatabase : RoomDatabase() {
 
@@ -21,11 +21,6 @@ abstract class NoteDatabase : RoomDatabase() {
 
     abstract fun getNotesDao(): NoteDao
     abstract fun getTodoDao(): TodoDao
-
-
-
-
-
 
     companion object{
 

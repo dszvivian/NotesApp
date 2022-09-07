@@ -3,10 +3,7 @@ package com.example.notesapp
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.CheckedTextView
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +16,7 @@ class TodoFragment : Fragment(R.layout.fragment_todo), OnTodoClick, OnTodoClickD
     lateinit var rvTodo: RecyclerView
     lateinit var todoViewModel: NoteViewModel
     lateinit var btnTodoDone: TextView
+    lateinit var adapter: TodoRVAdapter
 
 
 
@@ -33,7 +31,7 @@ class TodoFragment : Fragment(R.layout.fragment_todo), OnTodoClick, OnTodoClickD
 
         rvTodo.layoutManager = LinearLayoutManager(context)
 
-        val adapter = TodoRVAdapter(context!!.applicationContext , this , this  )
+        adapter = TodoRVAdapter(context!!.applicationContext , this , this  )
 
         rvTodo.adapter = adapter
 
@@ -66,7 +64,7 @@ class TodoFragment : Fragment(R.layout.fragment_todo), OnTodoClick, OnTodoClickD
                 val task = etEnterTask.text.toString()
 
                 if(task.isNotEmpty()) {
-                    todoViewModel.insertTodo(Todo(task))
+                    todoViewModel.insertTodo(Todo(task,false))
                     Toast.makeText(getContext(), "New Task Added", Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
                 }
@@ -80,12 +78,14 @@ class TodoFragment : Fragment(R.layout.fragment_todo), OnTodoClick, OnTodoClickD
 
     }
 
+
+    //update function if checkbox is clicked
+    //todo refactor all the name of the interfaces
     override fun onTodoClick(todo: Todo) {
-
-
-
-
-
+        val todoModel = Todo(task = todo.task ,isChecked = !todo.isChecked )
+        todoModel.id = todo.id
+        todoViewModel.updateTodo(todoModel)
+        adapter.notifyDataSetChanged()
     }
 
     override fun onLongPressDelete(todo: Todo) {
