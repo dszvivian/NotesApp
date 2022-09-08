@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 class NoteRVAdapter(
     val context: Context,
     val noteClickDeleteInterface: NoteClickDeleteInterface,
-    val noteClickInterface: NoteClickInterface
+    val noteClickInterface: NoteClickInterface,
 ) :
     RecyclerView.Adapter<NoteRVAdapter.ViewHolder>() {
 
