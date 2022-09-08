@@ -10,12 +10,14 @@
 <!--</resources>-->
 
 <resources>
-<color name="purple_200">#FFBB01</color>
-<color name="purple_500">#FFBB00</color>
-<color name="purple_700">#FB6542</color>
-<color name="teal_200">#375E97</color>
-<color name="teal_700">#3F681C</color>
-<color name="black">#FF000000</color>
-<color name="white">#FFFFFFFF</color>
+    <color name="purple_200">#FFBB01</color>
+    <color name="purple_500">#FFBB00</color>
+    <color name="purple_700">#FB6542</color>
+    <color name="teal_200">#375E97</color>
+    <color name="teal_700">#3F681C</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
     <color name="paleWhite">#F3EBEB</color>
+    <color name="red">#FD0303</color>
+
 </resources>

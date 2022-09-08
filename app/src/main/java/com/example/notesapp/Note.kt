@@ -13,7 +13,7 @@ class Note(
     val desc: String,
     @ColumnInfo(name = "timestamp")
     val timestamp: String,
-    ) {
+) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
 }

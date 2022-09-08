@@ -9,15 +9,15 @@ import kotlinx.coroutines.launch
 
 class NoteViewModel(application: Application) : AndroidViewModel(application) {
 
-    val allNotes : LiveData<List<Note>>
-    val allTodo : LiveData<List<Todo>>
-    private val repository : NotesRepository
+    val allNotes: LiveData<List<Note>>
+    val allTodo: LiveData<List<Todo>>
+    private val repository: NotesRepository
 
 
     init {
-        val dao =  NoteDatabase.getDatabase(application).getNotesDao()
+        val dao = NoteDatabase.getDatabase(application).getNotesDao()
         val todoDao = NoteDatabase.getDatabase(application).getTodoDao()
-        repository = NotesRepository(dao,todoDao)
+        repository = NotesRepository(dao, todoDao)
         allNotes = repository.getAllNotes
         allTodo = repository.getAllTodo
     }
@@ -28,11 +28,11 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
     }
 
 
-    fun delete(note : Note) = viewModelScope.launch(Dispatchers.IO) {
+    fun delete(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(note)
     }
 
-    fun update(note : Note) = viewModelScope.launch(Dispatchers.IO) {
+    fun update(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.update(note)
     }
 
@@ -50,8 +50,6 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
     fun deleteTodo(todo: Todo) = viewModelScope.launch(Dispatchers.IO) {
         repository.deleteTodo(todo)
     }
-
-
 
 
 }

@@ -14,7 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.util.*
 
-class MainActivity : Fragment(R.layout.activity_main), NoteClickInterface, NoteClickDeleteInterface {
+class MainActivity : Fragment(R.layout.activity_main), NoteClickInterface,
+    NoteClickDeleteInterface {
 
     lateinit var viewModal: NoteViewModel
     lateinit var notesRV: RecyclerView

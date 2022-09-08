@@ -9,9 +9,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 //Main Activity which will contain all the fragments
 class MainActivity2 : AppCompatActivity() {
 
-    lateinit var navHost:FrameLayout
+    lateinit var navHost: FrameLayout
     lateinit var bnvMain: BottomNavigationView
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +25,7 @@ class MainActivity2 : AppCompatActivity() {
 
         supportFragmentManager
             .beginTransaction().apply {
-                replace(R.id.flFragments , noteFragment )
+                replace(R.id.flFragments, noteFragment)
                     .addToBackStack(null)
                     .commit()
             }
@@ -37,16 +36,15 @@ class MainActivity2 : AppCompatActivity() {
         bnvMain.setOnItemSelectedListener {
 
 
-
-            when(it.itemId){
+            when (it.itemId) {
 
                 R.id.item_note -> {
 
                     supportFragmentManager
                         .beginTransaction().apply {
-                            replace(R.id.flFragments , noteFragment )
-                            .addToBackStack(null)
-                            .commit()
+                            replace(R.id.flFragments, noteFragment)
+                                .addToBackStack(null)
+                                .commit()
                         }
 
                     true
@@ -57,7 +55,7 @@ class MainActivity2 : AppCompatActivity() {
 
                     supportFragmentManager
                         .beginTransaction().apply {
-                            replace(R.id.flFragments , todoFragment )
+                            replace(R.id.flFragments, todoFragment)
                                 .addToBackStack(null)
                                 .commit()
                         }
@@ -65,12 +63,11 @@ class MainActivity2 : AppCompatActivity() {
                 }
 
 
-
-                else -> {false}
+                else -> {
+                    false
+                }
             }
         }
-
-
 
 
     }

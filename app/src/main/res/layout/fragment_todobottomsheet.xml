@@ -29,5 +29,11 @@
         android:padding="10dp"
         />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@id/btnTodoDone"
+        />
+
 
 </RelativeLayout>

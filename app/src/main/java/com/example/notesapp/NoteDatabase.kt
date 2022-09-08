@@ -10,26 +10,25 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 
 @Database(
     entities = arrayOf(
-        Note::class ,
+        Note::class,
         Todo::class
-    ) ,
-    version = 3 ,
+    ),
+    version = 3,
     exportSchema = false)
 abstract class NoteDatabase : RoomDatabase() {
-
 
 
     abstract fun getNotesDao(): NoteDao
     abstract fun getTodoDao(): TodoDao
 
-    companion object{
+    companion object {
 
         @Volatile
-        private var INSTANCE : NoteDatabase? = null
+        private var INSTANCE: NoteDatabase? = null
 
 
         //todo query not working
-        private val migration_1_2 = object : Migration(1,2){
+        private val migration_1_2 = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
 
                 database.query("create table if not exists 'todoTable' ('task' TEXT , `id` INTEGER, PRIMARY KEY(`id`))")
@@ -39,13 +38,12 @@ abstract class NoteDatabase : RoomDatabase() {
         }
 
 
+        fun getDatabase(context: Context): NoteDatabase {
 
-        fun getDatabase(context : Context): NoteDatabase{
-
-            return INSTANCE  ?: synchronized(this){
+            return INSTANCE ?: synchronized(this) {
 
                 val instance = Room.databaseBuilder(
-                    context.applicationContext ,
+                    context.applicationContext,
                     NoteDatabase::class.java,
                     "notes_database"
                 )
@@ -59,8 +57,6 @@ abstract class NoteDatabase : RoomDatabase() {
 
 
         }
-
-
 
 
     }

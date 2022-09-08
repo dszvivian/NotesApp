@@ -8,12 +8,12 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "todoTable")
 class Todo(
     @ColumnInfo(name = "task")
-    val task:String ,
+    val task: String,
 
-    @ColumnInfo(name =  "isChecked")
-    var isChecked:Boolean
+    @ColumnInfo(name = "isChecked")
+    var isChecked: Boolean,
 
-) {
+    ) {
     @PrimaryKey(autoGenerate = true)
-    var id:Int = 0
+    var id: Int = 0
 }
